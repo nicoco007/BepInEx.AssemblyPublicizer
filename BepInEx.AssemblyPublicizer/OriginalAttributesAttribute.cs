@@ -29,7 +29,7 @@ internal class OriginalAttributesAttribute
         var baseConstructorReference = attributeReference.CreateMemberReference(".ctor", MethodSignature.CreateInstance(module.CorLibTypeFactory.Void)).ImportWith(module.DefaultImporter);
 
         Type = new TypeDefinition(
-            "BepInEx.AssemblyPublicizer", "OriginalAttributesAttribute",
+            "BSIPA.AssemblyPublicizer", "OriginalAttributesAttribute",
             TypeAttributes.NotPublic | TypeAttributes.Sealed,
             attributeReference
         );

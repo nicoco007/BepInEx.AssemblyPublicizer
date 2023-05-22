@@ -1,5 +1,6 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
+        <AssemblyName>BSIPA.AssemblyPublicizer</AssemblyName>
         <TargetFramework>netstandard2.0</TargetFramework>
         <LangVersion>latest</LangVersion>
         <Nullable>enable</Nullable>
@@ -7,6 +8,7 @@
         <Description>Yet another assembly publicizer/stripper</Description>
 
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>BSIPA.AssemblyPublicizer</PackageId>
     </PropertyGroup>
 
     <ItemGroup>

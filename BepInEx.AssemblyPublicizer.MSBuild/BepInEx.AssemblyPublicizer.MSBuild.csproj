@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
+        <AssemblyName>BSIPA.AssemblyPublicizer.MSBuild</AssemblyName>
         <TargetFrameworks>netstandard2.1;net472</TargetFrameworks>
         <LangVersion>latest</LangVersion>
         <DebugType>embedded</DebugType>
@@ -7,6 +8,7 @@
         <Description>MSBuild integration for BepInEx.AssemblyPublicizer</Description>
 
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>BSIPA.AssemblyPublicizer.MSBuild</PackageId>
         <DevelopmentDependency>true</DevelopmentDependency>
         <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
         <NoPackageAnalysis>true</NoPackageAnalysis>
@@ -21,7 +23,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="$(MSBuildProjectName).props" Pack="true" PackagePath="build"/>
+        <Content Include="$(AssemblyName).props" Pack="true" PackagePath="build"/>
 
         <Compile Remove="IgnoresAccessChecksToAttribute.cs"/>
         <Content Include="IgnoresAccessChecksToAttribute.cs" Pack="true" PackagePath="contentFiles/cs/any" BuildAction="Compile"/>
@@ -29,7 +31,7 @@
 
     <Target Name="PackTaskDependencies" BeforeTargets="GenerateNuspec">
         <ItemGroup>
-            <_PackageFiles Include="bin\$(Configuration)\*\BepInEx.AssemblyPublicizer.dll;bin\$(Configuration)\*\AsmResolver*.dll">
+            <_PackageFiles Include="bin\$(Configuration)\*\BSIPA.AssemblyPublicizer.dll;bin\$(Configuration)\*\AsmResolver*.dll">
                 <PackagePath>lib%(RecursiveDir)</PackagePath>
                 <Visible>false</Visible>
                 <BuildAction>Content</BuildAction>

@@ -6,10 +6,10 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-    <Import Project="..\BepInEx.AssemblyPublicizer.MSBuild\BepInEx.AssemblyPublicizer.MSBuild.props"/>
+    <Import Project="..\BepInEx.AssemblyPublicizer.MSBuild\BSIPA.AssemblyPublicizer.MSBuild.props"/>
 
     <PropertyGroup>
-        <_BepInExAssemblyPublicizer_TaskAssembly>$(MSBuildThisFileDirectory)\..\BepInEx.AssemblyPublicizer.MSBuild\bin\$(Configuration)\netstandard2.1\BepInEx.AssemblyPublicizer.MSBuild.dll</_BepInExAssemblyPublicizer_TaskAssembly>
+        <_BepInExAssemblyPublicizer_TaskAssembly>$(MSBuildThisFileDirectory)\..\BepInEx.AssemblyPublicizer.MSBuild\bin\$(Configuration)\netstandard2.1\BSIPA.AssemblyPublicizer.MSBuild.dll</_BepInExAssemblyPublicizer_TaskAssembly>
     </PropertyGroup>
 
     <ItemGroup>

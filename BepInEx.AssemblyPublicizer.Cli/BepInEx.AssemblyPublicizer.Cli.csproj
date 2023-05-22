@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
+        <AssemblyName>BSIPA.AssemblyPublicizer.Cli</AssemblyName>
         <OutputType>Exe</OutputType>
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
@@ -8,6 +9,7 @@
         <Description>CLI tool for BepInEx.AssemblyPublicizer</Description>
 
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>BSIPA.AssemblyPublicizer.Cli</PackageId>
         <PackAsTool>true</PackAsTool>
         <ToolCommandName>assembly-publicizer</ToolCommandName>
     </PropertyGroup>
