@@ -10,6 +10,8 @@ public class AssemblyPublicizerOptions
 
     public bool Strip { get; set; } = false;
 
+    public bool SkipVirtualMethods { get; set; } = true;
+
     internal bool HasTarget(PublicizeTarget target)
     {
         return (Target & target) != 0;

@@ -91,6 +91,11 @@ public class PublicizeTask : Task
                 options.Strip = bool.Parse(rawStrip);
             }
 
+            if (optionsHolder.GetMetadata("SkipVirtualMethods") is { } rawSkipVirtualMethods && !string.IsNullOrEmpty(rawSkipVirtualMethods))
+            {
+                options.SkipVirtualMethods = bool.Parse(rawSkipVirtualMethods);
+            }
+
             var assemblyPath = taskItem.GetMetadata("FullPath");
             var hash = ComputeHash(File.ReadAllBytes(assemblyPath), options);
 
