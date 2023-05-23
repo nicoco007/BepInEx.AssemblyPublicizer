@@ -27,6 +27,14 @@
         </PropertyGroup>
     </Target>
 
+    <Target Name="ForceReGenerateOnRebuild" AfterTargets="CoreClean">
+        <ItemGroup>
+            <ItemsToDelete Include="$(IntermediateOutputPath)publicized\*.dll"/>
+            <ItemsToDelete Include="$(IntermediateOutputPath)publicized\*.dll.md5"/>
+        </ItemGroup>
+        <Delete Files="@(ItemsToDelete)" />
+    </Target>
+
     <ItemDefinitionGroup>
         <Publicize Visible="false">
             <PublicizeTarget />
