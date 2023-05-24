@@ -91,9 +91,9 @@ public class PublicizeTask : Task
                 options.Strip = bool.Parse(rawStrip);
             }
 
-            if (optionsHolder.GetMetadata("SkipVirtualMethods") is { } rawSkipVirtualMethods && !string.IsNullOrEmpty(rawSkipVirtualMethods))
+            if (optionsHolder.GetMetadata("SkipOverridableMethods") is { } rawSkipOverridableMethods && !string.IsNullOrEmpty(rawSkipOverridableMethods))
             {
-                options.SkipVirtualMethods = bool.Parse(rawSkipVirtualMethods);
+                options.SkipOverridableMethods = bool.Parse(rawSkipOverridableMethods);
             }
 
             var assemblyPath = taskItem.GetMetadata("FullPath");

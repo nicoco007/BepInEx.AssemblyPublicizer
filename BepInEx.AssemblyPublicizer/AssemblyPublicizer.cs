@@ -118,7 +118,7 @@ public static class AssemblyPublicizer
         if (methodDefinition.IsCompilerControlled)
             return;
 
-        if (!methodDefinition.IsPublic && !(methodDefinition.IsVirtual && options.SkipVirtualMethods))
+        if (!methodDefinition.IsPublic && !((methodDefinition.IsVirtual || methodDefinition.IsAbstract) && options.SkipOverridableMethods))
         {
             if (!ignoreCompilerGeneratedCheck && !options.PublicizeCompilerGenerated && methodDefinition.IsCompilerGenerated())
                 return;

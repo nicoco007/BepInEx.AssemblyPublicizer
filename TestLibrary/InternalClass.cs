@@ -12,7 +12,7 @@ internal class InternalClass
     private int PrivateAutoProperty { get; set; }
 }
 
-public class SecondClass
+public abstract class SecondClass
 {
     private int _field;
 
@@ -22,4 +22,11 @@ public class SecondClass
     {
         return 0;
     }
+
+    protected virtual void ProtectedVirtualMethod()
+    {
+        Console.WriteLine("SecondClass.ProtectedVirtualMethod");
+    }
+
+    protected abstract void ProtectedAbstractMethod();
 }
