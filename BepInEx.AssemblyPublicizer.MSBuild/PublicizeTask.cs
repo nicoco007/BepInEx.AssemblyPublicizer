@@ -107,7 +107,7 @@ public class PublicizeTask : Task
 
             removedReferences.Add(taskItem);
 
-            var publicizedReference = new TaskItem(publicizedAssemblyPath, taskItem.CloneCustomMetadata());
+            var publicizedReference = new TaskItem(taskItem.ItemSpec, taskItem.CloneCustomMetadata());
             publicizedReference.SetMetadata("ReferenceAssembly", publicizedAssemblyPath);
             publicizedReference.SetMetadata("HintPath", publicizedAssemblyPath);
             publicizedReferences.Add(publicizedReference);
