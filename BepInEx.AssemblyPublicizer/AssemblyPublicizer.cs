@@ -80,6 +80,8 @@ public static class AssemblyPublicizer
             {
                 foreach (var propertyDefinition in typeDefinition.Properties)
                 {
+                    if (propertyDefinition.IsCompilerGenerated()) continue;
+
                     if (propertyDefinition.GetMethod is { } getMethod) Publicize(getMethod, attribute, options, true);
                     if (propertyDefinition.SetMethod is { } setMethod) Publicize(setMethod, attribute, options, true);
                 }
@@ -118,7 +120,19 @@ public static class AssemblyPublicizer
         if (methodDefinition.IsCompilerControlled)
             return;
 
-        if (!methodDefinition.IsPublic && !((methodDefinition.IsVirtual || methodDefinition.IsAbstract) && options.SkipOverridableMethods))
+        // Ignore explicit interface implementations because you can't call them directly anyway and it confuses IDEs
+        if (methodDefinition is { IsVirtual: true, IsFinal: true, DeclaringType: not null })
+        {
+            foreach (var implementation in methodDefinition.DeclaringType.MethodImplementations)
+            {
+                if (implementation.Body == methodDefinition)
+                {
+                    return;
+                }
+            }
+        }
+
+        if (!methodDefinition.IsPublic && !((methodDefinition.IsVirtual || methodDefinition.IsAbstract) && options.SkipOverridableMethods))
         {
             if (!ignoreCompilerGeneratedCheck && !options.PublicizeCompilerGenerated && methodDefinition.IsCompilerGenerated())
                 return;
